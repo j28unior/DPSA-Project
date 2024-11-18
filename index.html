@@ -25,33 +25,32 @@
     </header>
 
     <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="login-container">
+                <h1 class="animate-fade-in">Effective Work is Built from Collaboration</h1>
+                <p class="slogan animate-fade-in delay-1">Empowering DPSA through Seamless Knowledge Management</p>
+                <form id="login-form" class="animate-slide-up">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
 
-<section id="hero">
-    <div class="hero-content">
-        <div class="login-container">
-            <h1 class="animate-fade-in">Effective Work is Built from Collaboration</h1>
-            <p class="slogan animate-fade-in delay-1">Empowering DPSA through Seamless Knowledge Management</p>
-            <form id="login-form" class="animate-slide-up">
-                <label for="username">Username:</label>
-                <input type="text" id="username" placeholder="Enter your username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" placeholder="Enter your password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p id="login-error" class="error-message"></p>
 
-                <button type="submit">Login</button>
-            </form>
-            <p id="login-error" class="error-message"></p>
+                <hr class="divider">
 
-            <hr class="divider">
-
-            <!-- SSO Login Button -->
-            <button id="sso-button" class="btn btn-sso"><i class="fab fa-google"></i> Login with SSO</button>
+                <!-- SSO Login Button -->
+                <button id="sso-button" class="btn btn-sso"><i class="fab fa-google"></i> Login with SSO</button>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/hero-image.jpg" alt="KMS Illustration">
+            </div>
         </div>
-        <div class="hero-image">
-            <img src="assets/images/hero-image.jpg" alt="KMS Illustration">
-        </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Features Section -->
@@ -133,28 +132,28 @@
     <section id="integrations">
         <h2>Integrations with DPSA Tools</h2>
         <div class="integrations-container">
-            <div class="integration-item">
-                <i class="fab fa-google-drive"></i>
+            <div class="integration-item" title="Google Drive Integration">
+                <i class="fas fa-cloud"></i>
                 <p>Google Drive</p>
             </div>
-            <div class="integration-item">
+            <div class="integration-item" title="ClickUp Integration">
                 <i class="fas fa-tasks"></i>
                 <p>ClickUp</p>
             </div>
-            <div class="integration-item">
+            <div class="integration-item" title="Microsoft Teams Integration">
                 <i class="fab fa-microsoft-teams"></i>
                 <p>Microsoft Teams</p>
             </div>
-            <div class="integration-item">
+            <div class="integration-item" title="Asana Integration">
                 <i class="fas fa-project-diagram"></i>
                 <p>Asana</p>
             </div>
-            <div class="integration-item">
+            <div class="integration-item" title="Slack Integration">
                 <i class="fab fa-slack"></i>
                 <p>Slack</p>
             </div>
-            <div class="integration-item">
-                <i class="fab fa-zendesk"></i>
+            <div class="integration-item" title="Zendesk Integration">
+                <i class="fas fa-headset"></i>
                 <p>Zendesk</p>
             </div>
         </div>
@@ -187,13 +186,13 @@
     <script src="js/main.js"></script>
     <script src="js/modules/login.js"></script>
     <script src="js/slideshow.js"></script> <!-- For Testimonials Slideshow -->
-    <!-- Before closing </body> tag -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-3ObN3aoBn8OjsbzGq3KGs0efZPWxSL5QlmA2jIRQm9+E0jeHg0mWY0kFhH0vB7qS3uQpLq/zz1qcPXagcQ9lEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    AOS.init({
-        duration: 1000, // Animation duration
-        once: true, // Whether animation should happen only once
-    });
-</script>
+    <!-- Animate on Scroll (AOS) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-3ObN3aoBn8OjsbzGq3KGs0efZPWxSL5QlmA2jIRQm9+E0jeHg0mWY0kFhH0vB7qS3uQpLq/zz1qcPXagcQ9lEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true, // Whether animation should happen only once
+        });
+    </script>
 </body>
 </html>
