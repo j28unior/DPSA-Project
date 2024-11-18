@@ -1,0 +1,256 @@
+<!-- project/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Chart.js for Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="search.html"><i class="fas fa-search"></i> Search</a></li>
+            <li><a href="repository.html"><i class="fas fa-folder-open"></i> Repository</a></li>
+            <li><a href="collaboration.html"><i class="fas fa-users"></i> Collaboration</a></li>
+            <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar with Home Icon and Status Updates -->
+    <aside class="sidebar">
+        <div class="sidebar-home">
+            <a href="dashboard.html"><i class="fas fa-home fa-2x"></i></a>
+            <p>Home</p>
+        </div>
+        <div class="sidebar-status">
+            <h3>Status Updates</h3>
+            <ul id="status-updates">
+                <!-- Dynamic Status Updates -->
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Introductory Video Section -->
+        <section id="intro-video" class="section">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to DPSA Knowledge Management System</h2>
+            <div class="video-container animate__animated animate__fadeInUp">
+                <video width="100%" controls>
+                    <source src="assets/videos/intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- AI-Enhanced Content Highlights -->
+        <section id="content-highlights" class="section">
+            <h2 class="animate__animated animate__fadeInDown">AI-Enhanced Content Highlights</h2>
+            <!-- Inside the AI-Enhanced Content Highlights section -->
+            <div class="chart-container animate__animated animate__fadeInUp">
+                <canvas id="updatesChart"></canvas>
+            </div>
+
+            <div class="cards-container animate__animated animate__fadeInUp" id="content-highlights-container">
+                <!-- Dynamic Content Highlights -->
+                <div class="card">
+                    <i class="fas fa-newspaper fa-2x"></i>
+                    <h3>Recent Updates</h3>
+                    <p>Latest policy changes have been implemented in the Human Resources department.</p>
+                    <button class="view-button" data-card-id="1">View</button>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-alt fa-2x"></i>
+                    <h3>Important Documents</h3>
+                    <p>Access the newly updated Employee Handbook and Compliance Guidelines.</p>
+                    <button class="view-button" data-card-id="2">View</button>
+                </div>
+                <div class="card">
+                    <i class="fas fa-sync-alt fa-2x"></i>
+                    <h3>Document Changes</h3>
+                    <p>Policy documents have been revised to reflect the latest regulatory standards.</p>
+                    <button class="view-button" data-card-id="3">View</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Panels on the Right Side -->
+        <div class="additional-panels">
+            <!-- Recent Activities Panel -->
+            <div class="panel recent-activities">
+                <h3>Recent Activities</h3>
+                <ul id="recent-activities-list">
+                    <!-- Dynamic Recent Activities -->
+                    <li><i class="fas fa-upload"></i> Uploaded "Employee Handbook 2024"</li>
+                    <li><i class="fas fa-edit"></i> Edited "Data Privacy Policy"</li>
+                    <li><i class="fas fa-download"></i> Downloaded "Effective Team Communication"</li>
+                    <!-- Add more dummy activities as needed -->
+                </ul>
+            </div>
+
+
+
+            <section id="document-stats">
+    <h2>Document Statistics</h2>
+    <div class="stats-container">
+        <canvas id="document-chart"></canvas>
+    </div>
+</section>
+
+            <!-- News & Announcements Panel -->
+            <div class="panel news-announcements">
+                <h3>News & Announcements</h3>
+                <ul id="news-list">
+                    <!-- Dynamic News Items -->
+                    <li>
+                        <strong>New Policy Released:</strong> The updated data privacy policy is now available in the repository.
+                    </li>
+                    <li>
+                        <strong>Upcoming Training:</strong> Join the training session on effective collaboration tools next Friday.
+                    </li>
+                    <li>
+                        <strong>System Maintenance:</strong> Scheduled maintenance on Saturday at 2 AM.
+                    </li>
+                    <!-- Add more dummy news items as needed -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Quick Links Section -->
+        <section id="quick-links" class="section">
+            <h2 class="animate__animated animate__fadeInDown">Quick Links</h2>
+            <div class="links-container animate__animated animate__fadeInUp">
+                <a href="repository.html" class="quick-link">
+                    <i class="fas fa-folder-open fa-2x"></i>
+                    <span>Knowledge Repository</span>
+                </a>
+                <a href="collaboration.html" class="quick-link">
+                    <i class="fas fa-users fa-2x"></i>
+                    <span>Collaboration Hub</span>
+                </a>
+                <a href="search.html" class="quick-link">
+                    <i class="fas fa-search fa-2x"></i>
+                    <span>Advanced Search</span>
+                </a>
+                <a href="profile.html" class="quick-link">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    <span>User Profile</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Alerts and Notifications Section -->
+        <section id="alerts-notifications" class="section">
+            <h2 class="animate__animated animate__fadeInDown">Alerts and Notifications</h2>
+            <ul id="alerts-list" class="alerts-list animate__animated animate__fadeInUp">
+                <!-- Dynamic Alerts -->
+                <li class="alert">
+                    <i class="fas fa-exclamation-triangle alert-icon"></i>
+                    <strong>Policy Update:</strong> The new data privacy policy has been released. Please review it in the repository.
+                </li>
+                <li class="alert">
+                    <i class="fas fa-info-circle alert-icon"></i>
+                    <strong>Announcement:</strong> Upcoming training session on effective collaboration tools next Friday.
+                </li>
+                <!-- Add more dummy alerts as needed -->
+            </ul>
+        </section>
+
+        <!-- Personalized Document Recommendations -->
+        <section id="recommendations" class="section">
+            <h2 class="animate__animated animate__fadeInDown">Personalized Document Recommendations</h2>
+            <div class="recommendations-container animate__animated animate__fadeInUp" id="recommendations-container">
+                <!-- Dynamic Recommendations -->
+                <div class="recommendation-card">
+                    <i class="fas fa-file-alt fa-2x"></i>
+                    <h3>Effective Team Communication</h3>
+                    <p>Enhance your team's communication strategies with this comprehensive guide.</p>
+                    
+                </div>
+                <div class="recommendation-card">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <h3>Analytics in KMS</h3>
+                    <p>Discover how to leverage analytics to improve knowledge management.</p>
+                    
+                </div>
+                <div class="recommendation-card">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                    <h3>Data Security Best Practices</h3>
+                    <p>Ensure the integrity and security of your data with these best practices.</p>
+                    
+                </div>
+                
+
+       
+
+            </div>
+
+             <!-- Recommendation Modal -->
+        <div id="recommendation-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeRecommendationModal()">&times;</span>
+                <h3 id="recommendation-title">Recommendation Title</h3>
+                <p id="recommendation-details">Detailed information about the recommendation.</p>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLogoutModal()">&times;</span>
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button id="confirm-logout" class="confirm-btn">Yes, Logout</button>
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI-Detail Modal -->
+    <div id="ai-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeAIDetailModal()">&times;</span>
+            <h3 id="ai-modal-title">Title</h3>
+            <p id="ai-modal-content">Content goes here...</p>
+            <div class="modal-actions">
+                <button class="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="notification-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</body>
+</html>

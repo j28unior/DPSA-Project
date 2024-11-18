@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSO Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <img src="assets/images/logo.png" alt="CSO Logo" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="cso_dashboard.html">CSO Dashboard</a></li>
+                <li><a href="dashboard.html">General Dashboard</a></li>
+                <li><a href="collaboration.html">Collaboration</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Security Overview Section -->
+        <section id="security-overview">
+            <h2>Security Overview</h2>
+            <div class="overview-container">
+                <!-- Active Security Alerts -->
+                <div class="overview-card">
+                    <h3>Active Security Alerts</h3>
+                    <ul id="active-security-alerts">
+                        <li>Alert 1: Unauthorized access detected.</li>
+                        <li>Alert 2: Multiple login failures.</li>
+                        <li>Alert 3: Suspicious activity flagged.</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+
+                <!-- Unusual Access Behaviors -->
+                <div class="overview-card">
+                    <h3>Unusual Access Behaviors</h3>
+                    <ul id="unusual-access-list">
+                        <li>User X logged in from a new location.</li>
+                        <li>System Y accessed at odd hours.</li>
+                        <li>Unusual file downloads detected.</li>
+                    </ul>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Updates Section -->
+        <section id="status-updates">
+            <h2>Status Updates</h2>
+            <div class="updates-container">
+                <div class="update-card">
+                    <h3>Best Practices</h3>
+                    <p>New best practices for secure data handling have been released.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+
+                <div class="update-card">
+                    <h3>Reports</h3>
+                    <p>The latest security incident report is now available.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+
+                <div class="update-card">
+                    <h3>Guidelines</h3>
+                    <p>Updated guidelines for compliance with recent policies.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+
+                <div class="update-card">
+                    <h3>Recent Updates</h3>
+                    <p>All systems are operational, with minor updates applied to the network.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities Section -->
+        <section id="recent-activities">
+            <h2>Recent Activities</h2>
+            <div class="activities-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th>User</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Login Attempt</td>
+                            <td>User X</td>
+                            <td>2024-11-16 08:23</td>
+                        </tr>
+                        <tr>
+                            <td>File Download</td>
+                            <td>Admin Y</td>
+                            <td>2024-11-16 09:15</td>
+                        </tr>
+                        <tr>
+                            <td>Password Change</td>
+                            <td>User Z</td>
+                            <td>2024-11-16 10:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Document Statistics Section -->
+        <section id="document-statistics">
+            <h2>Document Statistics</h2>
+            <div class="stats-container">
+                <p>Total Documents: 256</p>
+                <p>Secure Documents: 198</p>
+                <p>Public Documents: 58</p>
+                <canvas id="document-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- Effective Communication Section -->
+        <section id="effective-communication">
+            <h2>Effective Communication</h2>
+            <div class="communication-container">
+                <div class="communication-card">
+                    <h3>Secure Messaging</h3>
+                    <p>Learn the importance of secure messaging protocols for data exchange.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="communication-card">
+                    <h3>Team Collaboration</h3>
+                    <p>Explore tools to enhance team collaboration without compromising security.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="communication-card">
+                    <h3>Incident Reporting</h3>
+                    <p>Understand how to report incidents effectively and mitigate risks.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/cso_dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

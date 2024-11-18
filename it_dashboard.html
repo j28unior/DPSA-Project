@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - IT Manager Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Chart.js for Analytics Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="it_dashboard.html" class="active">IT Dashboard</a></li>
+                <li><a href="dashboard.html">General Dashboard</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="repository.html">Repository</a></li>
+                <li><a href="collaboration.html">Collaboration</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- IT Overview Section -->
+        <section id="it-overview" class="section">
+            <h2>IT Overview</h2>
+            <div class="overview-container">
+                <!-- Active IT Security Alerts -->
+                <div class="overview-card">
+                    <h3>Active IT Security Alerts</h3>
+                    <ul id="active-it-security-alerts">
+                        <!-- Dynamic IT Security Alerts -->
+                        <!-- Example Alert -->
+                        <li>Unauthorized access attempt detected on server X.</li>
+                        <li>Malware detected in email attachments.</li>
+                        <li>Firewall breach reported in the Finance department.</li>
+                    </ul>
+                </div>
+                <!-- IT Policies Management -->
+                <div class="overview-card">
+                    <h3>IT Policies Management</h3>
+                    <button id="add-policy-button"><i class="fas fa-plus"></i> Add New Policy</button>
+                    <!-- Add Policy Modal -->
+                    <div id="add-policy-modal" class="modal hidden">
+                        <div class="modal-content">
+                            <span class="close-button" onclick="closeAddPolicyModal()">&times;</span>
+                            <h3>Add New IT Policy</h3>
+                            <form id="new-policy-form">
+                                <label for="policy-title">Title:</label>
+                                <input type="text" id="policy-title" required>
+
+                                <label for="policy-content">Content:</label>
+                                <textarea id="policy-content" rows="5" required></textarea>
+
+                                <label for="policy-author">Author:</label>
+                                <input type="text" id="policy-author" required>
+
+                                <button type="submit">Add Policy</button>
+                                <button type="button" onclick="closeAddPolicyModal()" class="cancel-btn">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IT Policies Section -->
+        <section id="it-policies" class="section">
+            <h2>IT Policies</h2>
+            <input type="text" id="it-policy-search" placeholder="Search IT Policies..." onkeyup="searchITPolicies()">
+            <div id="it-policies-list" class="document-container">
+                <!-- Dynamic IT Policies -->
+                <!-- Example Policy -->
+                <div class="document-card">
+                    <h3>Data Privacy Policy</h3>
+                    <p><strong>Author:</strong> Jane Smith</p>
+                    <p><strong>Date:</strong> 2024-04-15</p>
+                    <button onclick="viewPolicyDetails('Data Privacy Policy')"><i class="fas fa-eye"></i> View Details</button>
+                </div>
+                <div class="document-card">
+                    <h3>Network Security Guidelines</h3>
+                    <p><strong>Author:</strong> John Doe</p>
+                    <p><strong>Date:</strong> 2024-03-10</p>
+                    <button onclick="viewPolicyDetails('Network Security Guidelines')"><i class="fas fa-eye"></i> View Details</button>
+                </div>
+                <!-- Add more policies as needed -->
+            </div>
+        </section>
+
+        <!-- IT Documents Section -->
+        <section id="it-documents" class="section">
+            <h2>IT Documents</h2>
+            <button id="manage-documents-button"><i class="fas fa-folder-open"></i> Manage IT Documents</button>
+            <!-- Manage Documents Modal -->
+            <div id="manage-documents-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeManageDocumentsModal()">&times;</span>
+                    <h3>Manage IT Documents</h3>
+                    <ul id="it-documents-list">
+                        <!-- Dynamic IT Documents -->
+                        <!-- Example Document -->
+                        <li>
+                            <span>Server Configuration Guide</span>
+                            <button onclick="downloadDocument('Server Configuration Guide')"><i class="fas fa-download"></i> Download</button>
+                        </li>
+                        <li>
+                            <span>IT Asset Inventory</span>
+                            <button onclick="downloadDocument('IT Asset Inventory')"><i class="fas fa-download"></i> Download</button>
+                        </li>
+                        <!-- Add more documents as needed -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- IT Analytics Section -->
+        <section id="it-analytics" class="section">
+            <h2>IT Analytics</h2>
+            <div class="analytics-container">
+                <!-- System Uptime Chart -->
+                <div class="analytics-card">
+                    <h3>System Uptime</h3>
+                    <canvas id="system-uptime-chart" width="400" height="200"></canvas>
+                </div>
+                <!-- Response Time Chart -->
+                <div class="analytics-card">
+                    <h3>Average Response Time</h3>
+                    <canvas id="response-time-chart" width="400" height="200"></canvas>
+                </div>
+                <!-- Active Users Chart -->
+                <div class="analytics-card">
+                    <h3>Active Users</h3>
+                    <canvas id="active-users-chart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- IT Feedback Section -->
+        <section id="it-feedback" class="section">
+            <h2>Provide Feedback on IT Policies</h2>
+            <form id="it-feedback-form">
+                <label for="policy-select">Select IT Policy:</label>
+                <select id="policy-select" required>
+                    <option value="">--Select Policy--</option>
+                    <!-- Dynamic IT Policies Options -->
+                    <option value="Data Privacy Policy">Data Privacy Policy</option>
+                    <option value="Network Security Guidelines">Network Security Guidelines</option>
+                    <!-- Add more policies as needed -->
+                </select>
+        
+                <label for="feedback-rating">Rating:</label>
+                <select id="feedback-rating" required>
+                    <option value="">--Select Rating--</option>
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                    <option value="3">Average</option>
+                    <option value="2">Poor</option>
+                    <option value="1">Very Poor</option>
+                </select>
+        
+                <label for="feedback-comments">Comments:</label>
+                <textarea id="feedback-comments" rows="4" required></textarea>
+        
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <p id="feedback-message" class="success-message"></p>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="it-dashboard-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Modals Scripts -->
+    <!-- Add Policy Modal -->
+    <script>
+        // Function to show Add Policy Modal
+        function showAddPolicyForm() {
+            document.getElementById('add-policy-modal').classList.remove('hidden');
+        }
+
+        // Function to close Add Policy Modal
+        function closeAddPolicyModal() {
+            document.getElementById('add-policy-modal').classList.add('hidden');
+            document.getElementById('new-policy-form').reset();
+        }
+
+        // Function to show Manage Documents Modal
+        function manageITDocuments() {
+            document.getElementById('manage-documents-modal').classList.remove('hidden');
+        }
+
+        // Function to close Manage Documents Modal
+        function closeManageDocumentsModal() {
+            document.getElementById('manage-documents-modal').classList.add('hidden');
+        }
+
+        // Function to view policy details
+        function viewPolicyDetails(policyName) {
+            alert(`Viewing details for: ${policyName}`);
+            // Implement modal or detailed view as needed
+        }
+
+        // Function to download document
+        function downloadDocument(documentName) {
+            alert(`Downloading: ${documentName}`);
+            // Implement actual download functionality as needed
+        }
+    </script>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/it_dashboard.js"></script>
+</body>
+</html>

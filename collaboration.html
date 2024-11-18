@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - Collaboration Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="search.html"><i class="fas fa-search"></i> Search</a></li>
+            <li><a href="repository.html"><i class="fas fa-folder-open"></i> Repository</a></li>
+            <li><a href="collaboration.html" class="active"><i class="fas fa-users"></i> Collaboration</a></li>
+            <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar with Home Icon and Status Updates -->
+    <aside class="sidebar">
+        <div class="sidebar-home">
+            <a href="dashboard.html"><i class="fas fa-home fa-2x"></i></a>
+            <p>Home</p>
+        </div>
+        <div class="sidebar-status">
+            <h3>Status Updates</h3>
+            <ul id="status-updates">
+                <!-- Dynamic Status Updates -->
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Discussion Forums Section -->
+        <section id="discussion-forums" class="section">
+            <h2>Discussion Forums</h2>
+            <div class="forums-container">
+                <div class="forum">
+                    <h3>Project Discussions</h3>
+                    <ul>
+                        <li><strong>Alice:</strong> Let's discuss the new project timelines.</li>
+                        <li><strong>Bob:</strong> Sure, I have some updates.</li>
+                    </ul>
+                </div>
+                <div class="forum">
+                    <h3>Policy Updates</h3>
+                    <ul>
+                        <li><strong>Charlie:</strong> The IT policy has been updated.</li>
+                        <li><strong>Alice:</strong> Thanks for the update!</li>
+                    </ul>
+                </div>
+                <div class="forum">
+                    <h3>Department-Specific Channels</h3>
+                    <ul>
+                        <li><strong>HR Team:</strong> New recruitment strategies discussed.</li>
+                        <li><strong>Sales Team:</strong> Quarterly sales targets set.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chatbot Assistant Section -->
+        <section id="chatbot-assistant" class="section">
+            <h2>AI Chatbot Assistant</h2>
+            <div class="chatbot-container">
+                <div id="chat-window" class="chat-window">
+                    <div id="chat-messages" class="chat-messages">
+                        <!-- Chat Messages -->
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Ask me anything...">
+                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback and Ratings Section -->
+        <section id="feedback-rating" class="section">
+            <h2>Feedback and Ratings</h2>
+            <div class="feedback-container">
+                <form id="feedback-form">
+                    <label for="document">Select Document:</label>
+                    <select id="document" required>
+                        <option value="">--Select--</option>
+                        <!-- Dynamic Options -->
+                    </select>
+
+                    <label for="rating">Rating:</label>
+                    <select id="rating" required>
+                        <option value="">--Select--</option>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Good</option>
+                        <option value="3">3 - Average</option>
+                        <option value="2">2 - Poor</option>
+                        <option value="1">1 - Terrible</option>
+                    </select>
+
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" rows="3" placeholder="Your feedback..."></textarea>
+
+                    <button type="submit">Submit Feedback</button>
+                </form>
+
+                <div id="feedback-list">
+                    <!-- User Feedbacks -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLogoutModal()">&times;</span>
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button id="confirm-logout" class="confirm-btn">Yes, Logout</button>
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Detail Modal -->
+    <div id="document-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeDocumentDetailModal()">&times;</span>
+            <h3 id="document-modal-title">Document Title</h3>
+            <p id="document-modal-content">Detailed information about the document.</p>
+            <div class="modal-actions">
+                <button class="read-more">Read Full Document</button>
+                <button class="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="collaboration-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/collaboration.js"></script>
+</body>
+</html>

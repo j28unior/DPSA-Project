@@ -1,0 +1,198 @@
+<!-- project/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - Search</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Chart.js for Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="search.html" class="active"><i class="fas fa-search"></i> Search</a></li>
+            <li><a href="repository.html"><i class="fas fa-folder-open"></i> Repository</a></li>
+            <li><a href="collaboration.html"><i class="fas fa-users"></i> Collaboration</a></li>
+            <li><a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar with Home Icon and Status Updates -->
+    <aside class="sidebar">
+        <div class="sidebar-home">
+            <a href="dashboard.html"><i class="fas fa-home fa-2x"></i></a>
+            <p>Home</p>
+        </div>
+        <div class="sidebar-status">
+            <h3>Status Updates</h3>
+            <ul id="status-updates">
+                <!-- Dynamic Status Updates -->
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Search Bar Section -->
+        <section id="search-bar" class="section">
+            <h2 class="animate__animated animate__fadeInDown">Advanced AI Search</h2>
+            <div class="search-container animate__animated animate__fadeInUp">
+                <input type="text" id="search-input" placeholder="Search documents..." autocomplete="off">
+                <button id="search-button"><i class="fas fa-search"></i> Search</button>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section id="filters" class="section">
+            <h3>Filter Options</h3>
+            <form id="filter-form">
+                <div class="filter-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="filter-group">
+                    <label for="department">Department:</label>
+                    <select id="department" name="department">
+                        <option value="">All</option>
+                        <option value="IT">IT</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Sales">Sales</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="document-type">Document Type:</label>
+                    <select id="document-type" name="document-type">
+                        <option value="">All</option>
+                        <option value="Policy">Policy</option>
+                        <option value="Report">Report</option>
+                        <option value="Guidelines">Guidelines</option>
+                        <option value="Best Practices">Best Practices</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" placeholder="Author Name">
+                </div>
+                <div class="filter-group">
+                    <label for="relevance">Relevance:</label>
+                    <select id="relevance" name="relevance">
+                        <option value="">Any</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <button type="submit" class="apply-filters-btn">Apply Filters</button>
+            </form>
+        </section>
+
+        <!-- Search Results Section -->
+        <section id="search-results" class="section">
+            <h3>Search Results</h3>
+            <div id="results-container">
+                <!-- Dynamic Search Results -->
+                <div class="result-card">
+                    <h4>Employee Handbook 2024</h4>
+                    <p>Comprehensive guidelines on workplace conduct, data privacy, and performance evaluation metrics.</p>
+                    <a href="repository.html#employee-handbook" class="read-more">Read More</a>
+                </div>
+                <div class="result-card">
+                    <h4>Data Privacy Policy</h4>
+                    <p>Detailed policy outlining data handling, storage, and security protocols.</p>
+                    <a href="repository.html#data-privacy-policy" class="read-more">Read More</a>
+                </div>
+                <!-- Add more dummy results as needed -->
+                 <!-- Inside Search Results Section -->
+                <div class="chart-container animate__animated animate__fadeInUp">
+                    <canvas id="documentTypesChart"></canvas>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Recommendation Panel Section -->
+        <section id="recommendation-panel" class="section">
+            <h3>AI-Driven Suggestions</h3>
+            <div class="recommendations-container animate__animated animate__fadeInUp" id="recommendation-container">
+                <!-- Dynamic Recommendations -->
+                <div class="recommendation-card">
+                    <i class="fas fa-file-alt fa-2x"></i>
+                    <h4>Effective Team Communication</h4>
+                    <p>Enhance your team's communication strategies with this comprehensive guide.</p>
+                    <a href="repository.html#effective-communication" class="read-more">Read More</a>
+                </div>
+                <div class="recommendation-card">
+                    <i class="fas fa-chart-line fa-2x"></i>
+                    <h4>Analytics in KMS</h4>
+                    <p>Discover how to leverage analytics to improve knowledge management.</p>
+                    <a href="repository.html#analytics-kms" class="read-more">Read More</a>
+                </div>
+                <div class="recommendation-card">
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                    <h4>Data Security Best Practices</h4>
+                    <p>Ensure the integrity and security of your data with these best practices.</p>
+                    <a href="repository.html#data-security" class="read-more">Read More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Search Detail Modal -->
+    <div id="search-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeSearchDetailModal()">&times;</span>
+            <h3 id="search-modal-title">Document Title</h3>
+            <p id="search-modal-content">Detailed information about the document.</p>
+            <div class="modal-actions">
+                <a href="#" class="read-more">Read Full Document</a>
+                <button class="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLogoutModal()">&times;</span>
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button id="confirm-logout" class="confirm-btn">Yes, Logout</button>
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="search-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/search.js"></script>
+
+    <!-- Chart Initialization Scripts -->
+    <script>
+        // Example: You can add Chart.js initialization here if needed
+    </script>
+</body>
+</html>

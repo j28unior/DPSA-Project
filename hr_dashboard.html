@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - HR Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="hr_dashboard.html">HR Dashboard</a></li>
+                <li><a href="dashboard.html">General Dashboard</a></li>
+                <li><a href="collaboration.html">Collaboration</a></li>
+                <li><a href="#" id="logout-button">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hr-overview">
+            <h2>HR Overview</h2>
+            <div class="overview-container">
+                <div class="overview-card">
+                    <h3>Current Open Positions</h3>
+                    <ul id="open-positions">
+                        <li><strong>Software Engineer</strong> - IT Department</li>
+                        <li><strong>HR Assistant</strong> - HR Department</li>
+                        <li><strong>Project Manager</strong> - Operations</li>
+                    </ul>
+                </div>
+                <div class="overview-card">
+                    <h3>Recent Applications</h3>
+                    <ul id="recent-applications">
+                        <li><strong>Jane Doe:</strong> Software Engineer</li>
+                        <li><strong>John Smith:</strong> HR Assistant</li>
+                        <li><strong>Emily Davis:</strong> Project Manager</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="document-management">
+            <h2>Document Management</h2>
+            <button onclick="manageDocuments()">Manage HR Documents</button>
+            <div id="hr-documents-list">
+                <div class="document-card">
+                    <h4>Employee Handbook</h4>
+                    <p>Last updated: 2023-12-15</p>
+                    <button onclick="viewDocument('Employee Handbook')">View</button>
+                </div>
+                <div class="document-card">
+                    <h4>Recruitment Policy</h4>
+                    <p>Last updated: 2023-11-30</p>
+                    <button onclick="viewDocument('Recruitment Policy')">View</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="hr-analytics">
+            <h2>HR Analytics</h2>
+            <canvas id="employee-turnover-chart" width="400" height="200"></canvas>
+            <canvas id="department-hiring-chart" width="400" height="200"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/hr_dashboard.js"></script>
+</body>
+</html>

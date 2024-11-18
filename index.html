@@ -1,0 +1,199 @@
+<!-- project/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-G/Y5mZQqChYKszf3iFpC2sSRj0rXvb2yV1Q6gMqq+zSOVtKezD7Z9xBt2jwK3TbhcFx1KDbjf7FFASZl80M4gA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <!-- Add more public links here if needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+
+<section id="hero">
+    <div class="hero-content">
+        <div class="login-container">
+            <h1 class="animate-fade-in">Effective Work is Built from Collaboration</h1>
+            <p class="slogan animate-fade-in delay-1">Empowering DPSA through Seamless Knowledge Management</p>
+            <form id="login-form" class="animate-slide-up">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p id="login-error" class="error-message"></p>
+
+            <hr class="divider">
+
+            <!-- SSO Login Button -->
+            <button id="sso-button" class="btn btn-sso"><i class="fab fa-google"></i> Login with SSO</button>
+        </div>
+        <div class="hero-image">
+            <img src="assets/images/hero-image.jpg" alt="KMS Illustration">
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>What DPSA KMS Offers</h2>
+        <div class="features-container">
+            <div class="feature-item">
+                <i class="fas fa-search"></i>
+                <h3>Comprehensive Search</h3>
+                <p>Easily find documents, policies, and resources with our advanced search functionality.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-upload"></i>
+                <h3>Seamless Uploads</h3>
+                <p>Upload and organize your files efficiently, ensuring easy access for all authorized personnel.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics & Reporting</h3>
+                <p>Gain insights into knowledge usage and collaboration patterns to drive informed decisions.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <h3>Collaboration Tools</h3>
+                <p>Enhance teamwork with integrated tools that facilitate communication and project management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Why DPSA Trusts Our KMS</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-slide active">
+                <img src="assets/images/manager1.png" alt="Jane Doe">
+                <p>"The KMS has revolutionized the way we manage and access information. It's intuitive and efficient."</p>
+                <h4>Patrick Zungu</h4>
+                <span>Senior Manager, Human Resources</span>
+            </div>
+            <div class="testimonial-slide">
+                <img src="assets/images/manager2.jpg" alt="John Smith">
+                <p>"Collaboration has never been easier. The integrated tools save us time and boost productivity."</p>
+                <h4>Monwabisa Sbiya</h4>
+                <span>Chief Security Officer, Security Department</span>
+            </div>
+            <div class="testimonial-slide">
+                <img src="assets/images/manager3.jpg" alt="Emily Johnson">
+                <p>"The analytics feature provides valuable insights that help us improve our processes continuously."</p>
+                <h4>Bavumile Cele</h4>
+                <span>IT Manager, Information Technology</span>
+            </div>
+            <div class="testimonial-slide">
+                <img src="assets/images/manager4.jpg" alt="Michael Brown">
+                <p>"Accessing important documents is now just a click away. The search functionality is top-notch."</p>
+                <h4>Michael Brown</h4>
+                <span>Sales Manager, Sales Department</span>
+            </div>
+            <div class="testimonial-slide">
+                <img src="assets/images/manager5.avif" alt="Sarah Davis">
+                <p>"The user-friendly interface makes training new employees a breeze. Highly recommended."</p>
+                <h4>Innocent Manganyi</h4>
+                <span>HR Manager, Human Resources</span>
+            </div>
+            <div class="testimonial-slide">
+                <img src="assets/images/manager6.avif" alt="David Wilson">
+                <p>"Integrating KMS with our existing tools has streamlined our workflow significantly."</p>
+                <h4>Sibonelo Masondo</h4>
+                <span>Security Administrator, Security Department</span>
+            </div>
+        </div>
+        <!-- Navigation for Testimonials -->
+        <div class="testimonial-nav">
+            <button id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+            <button id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section id="integrations">
+        <h2>Integrations with DPSA Tools</h2>
+        <div class="integrations-container">
+            <div class="integration-item">
+                <i class="fab fa-google-drive"></i>
+                <p>Google Drive</p>
+            </div>
+            <div class="integration-item">
+                <i class="fas fa-tasks"></i>
+                <p>ClickUp</p>
+            </div>
+            <div class="integration-item">
+                <i class="fab fa-microsoft-teams"></i>
+                <p>Microsoft Teams</p>
+            </div>
+            <div class="integration-item">
+                <i class="fas fa-project-diagram"></i>
+                <p>Asana</p>
+            </div>
+            <div class="integration-item">
+                <i class="fab fa-slack"></i>
+                <p>Slack</p>
+            </div>
+            <div class="integration-item">
+                <i class="fab fa-zendesk"></i>
+                <p>Zendesk</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTP Modal -->
+    <div id="otp-container" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeOtpModal()">&times;</span>
+            <h3>Enter OTP</h3>
+            <p>An OTP has been sent to your registered email or phone.</p>
+            <form id="otp-form">
+                <input type="text" id="otp-input" placeholder="Enter OTP" required>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="otp-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="login-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/login.js"></script>
+    <script src="js/slideshow.js"></script> <!-- For Testimonials Slideshow -->
+    <!-- Before closing </body> tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-3ObN3aoBn8OjsbzGq3KGs0efZPWxSL5QlmA2jIRQm9+E0jeHg0mWY0kFhH0vB7qS3uQpLq/zz1qcPXagcQ9lEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    AOS.init({
+        duration: 1000, // Animation duration
+        once: true, // Whether animation should happen only once
+    });
+</script>
+</body>
+</html>

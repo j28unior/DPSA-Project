@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - User Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- D3.js for Tree Map -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Chart.js for Knowledge Map -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="search.html"><i class="fas fa-search"></i> Search</a></li>
+            <li><a href="repository.html"><i class="fas fa-folder-open"></i> Repository</a></li>
+            <li><a href="collaboration.html"><i class="fas fa-users"></i> Collaboration</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user-circle"></i> Profile</a></li>
+            <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar with Home Icon and Status Updates -->
+    <aside class="sidebar">
+        <div class="sidebar-home">
+            <a href="dashboard.html"><i class="fas fa-home fa-2x"></i></a>
+            <p>Home</p>
+        </div>
+        <div class="sidebar-status">
+            <h3>Status Updates</h3>
+            <ul id="status-updates">
+                <!-- Dynamic Status Updates -->
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Employee Profile Section -->
+        <section id="employee-profile" class="section">
+            <h2>Employee Profile</h2>
+            <div class="profile-container">
+                <img src="assets/images/manager1.png" alt="User Avatar" class="user-avatar">
+                <div class="profile-details">
+                    <h3 id="user-name">Innocent Manganyi</h3>
+                    <p><strong>Position:</strong> Senior Analyst</p>
+                    <p><strong>Department:</strong> Data Analytics</p>
+                    <p><strong>Email:</strong> innocent.manganyi@dpsa.gov</p>
+                    <p><strong>Phone:</strong> (271) 456-7890</p>
+                    <button id="edit-profile-button" class="edit-button">Edit Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Questionnaire Section -->
+        <section id="career-questionnaire" class="section">
+            <h2>Career Questionnaire</h2>
+            <div class="questionnaire-container">
+                <form id="career-form">
+                    <label for="career-goals">What are your career goals?</label>
+                    <textarea id="career-goals" rows="3" required></textarea>
+
+                    <label for="preferred-skills">Which skills do you want to develop?</label>
+                    <input type="text" id="preferred-skills" placeholder="e.g., Cloud Security, Data Analysis" required>
+
+                    <label for="available-time">How much time can you dedicate to training per week?</label>
+                    <select id="available-time" required>
+                        <option value="">--Select--</option>
+                        <option value="5">Less than 5 hours</option>
+                        <option value="10">5-10 hours</option>
+                        <option value="15">10-15 hours</option>
+                        <option value="20">More than 15 hours</option>
+                    </select>
+
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="training-suggestions">
+                    <!-- AI-Generated Training Suggestions -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Skill and Knowledge Map Section -->
+        <section id="skill-knowledge-map" class="section">
+            <h2>Skill and Knowledge Map</h2>
+            <div class="map-container">
+                <canvas id="knowledgeMapCanvas" width="600" height="400"></canvas>
+            </div>
+            <div id="skill-tree">
+                <h3>Skill Progression</h3>
+                <div id="treeMap"></div>
+            </div>
+            <div id="knowledge-gaps">
+                <h3>Identified Knowledge Gaps</h3>
+                <ul>
+                    <li>Cloud Security
+                        <div class="study-info">
+                            <p><strong>Where to Study:</strong> <a href="https://www.uct.ac.za/" target="_blank">University of Cape Town</a></p>
+                            <p><strong>Course:</strong> Cloud Security Certification</p>
+                            <p><strong>Duration:</strong> 6 Months</p>
+                            <p><strong>Cost:</strong> R50,000</p>
+                        </div>
+                    </li>
+                    <li>Data Analytics
+                        <div class="study-info">
+                            <p><strong>Where to Study:</strong> <a href="https://www.wits.ac.za/" target="_blank">University of Witwatersrand</a></p>
+                            <p><strong>Course:</strong> Advanced Data Analytics</p>
+                            <p><strong>Duration:</strong> 4 Months</p>
+                            <p><strong>Cost:</strong> R40,000</p>
+                        </div>
+                    </li>
+                </ul>
+                <h4>Recommendations</h4>
+                <ul>
+                    <li>Enroll in Cloud Security Certification</li>
+                    <li>Attend Data Analytics Workshops</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Succession Planning Section -->
+        <section id="succession-planning" class="section">
+            <h2>Succession Planning</h2>
+            <div class="succession-container">
+                <p><strong>Suggested Successors:</strong></p>
+                <ul>
+                    <li>Bob Smith - Knowledge Area: Security Operations</li>
+                    <li>Charlie Davis - Knowledge Area: Network Management</li>
+                </ul>
+                <p><strong>Knowledge Needs:</strong></p>
+                <ul>
+                    <li>Advanced Encryption Techniques</li>
+                    <li>Firewall Configuration</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- AI Chatbot Assistant Section -->
+        <section id="chatbot-assistant" class="section">
+            <h2>AI Chatbot Assistant</h2>
+            <div class="chatbot-container">
+                <div id="chat-window" class="chat-window">
+                    <div id="chat-messages" class="chat-messages">
+                        <!-- Chat Messages -->
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Ask me anything...">
+                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div id="edit-profile-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeEditProfileModal()">&times;</span>
+            <h3>Edit Profile</h3>
+            <form id="edit-profile-form">
+                <label for="edit-name">Name:</label>
+                <input type="text" id="edit-name" required>
+
+                <label for="edit-position">Position:</label>
+                <input type="text" id="edit-position" required>
+
+                <label for="edit-department">Department:</label>
+                <input type="text" id="edit-department" required>
+
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" required>
+
+                <label for="edit-phone">Phone:</label>
+                <input type="text" id="edit-phone" required>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI Course Recommendation Modal -->
+    <div id="course-recommendation-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeCourseRecommendationModal()">&times;</span>
+            <h3>Course Recommendation</h3>
+            <p>Based on your career questionnaire, we recommend the following course:</p>
+            <div class="course-details">
+                <p><strong>Course Name:</strong> Advanced Cloud Security</p>
+                <p><strong>University:</strong> University of Cape Town</p>
+                <p><strong>Duration:</strong> 6 Months</p>
+                <p><strong>Cost:</strong> R50,000</p>
+                <p><strong>Where to Study:</strong> <a href="https://www.uct.ac.za/" target="_blank">Visit University of Cape Town</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLogoutModal()">&times;</span>
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button id="confirm-logout" class="confirm-btn">Yes, Logout</button>
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="profile-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/profile.js"></script>
+</body>
+</html>

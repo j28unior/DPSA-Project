@@ -1,0 +1,243 @@
+<!-- project/admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - Admin Console</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkMwX4Jk/wNjQ+ID1x1wC3XhCKe4Bnt/Bab1unZv1L1r3Zz3+0BcXGJYgI5cpXwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+        <ul class="nav-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="repository.html">Repository</a></li>
+            <li><a href="collaboration.html">Collaboration</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="admin.html">Admin</a></li>
+            <li><a href="#" id="logout-button">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Access Control and Security Dashboard -->
+        <section id="access-control">
+            <h2>Access Control and Security Dashboard</h2>
+            <div class="access-container">
+                <h3>Role-Based Access Management</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Department</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="access-table-body">
+                        <!-- Dummy User Roles -->
+                        <tr>
+                            <td>jdoe</td>
+                            <td>Jane Doe</td>
+                            <td>HR Manager</td>
+                            <td>Human Resources</td>
+                            <td>
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>asmith</td>
+                            <td>Alan Smith</td>
+                            <td>IT Manager</td>
+                            <td>Information Technology</td>
+                            <td>
+                                <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <!-- Add more dummy users as needed -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="security-monitoring">
+                <h3>AI Monitoring for Unusual Access Behavior</h3>
+                <canvas id="securityChart"></canvas>
+                <ul id="security-alerts">
+                    <!-- Dummy Security Alerts -->
+                    <li><i class="fas fa-exclamation-triangle alert-icon"></i> Multiple failed login attempts detected for user <strong>jdoe</strong>.</li>
+                    <li><i class="fas fa-exclamation-triangle alert-icon"></i> Unauthorized access attempt to restricted file by user <strong>asmith</strong>.</li>
+                    <!-- Add more dummy alerts as needed -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Audit Logs -->
+        <section id="audit-logs">
+            <h2>Audit Logs</h2>
+            <div class="logs-container">
+                <ul id="audit-log-list">
+                    <!-- Dummy Audit Logs -->
+                    <li><span class="timestamp">2024-04-25 10:15 AM</span> - <strong>jdoe</strong> updated policy document.</li>
+                    <li><span class="timestamp">2024-04-25 11:30 AM</span> - <strong>asmith</strong> added a new user to IT department.</li>
+                    <!-- Add more dummy logs as needed -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Feedback and Sentiment Reports -->
+        <section id="feedback-reports">
+            <h2>Feedback and Sentiment Reports</h2>
+            <div class="reports-container">
+                <div class="aggregated-feedback">
+                    <h3>Aggregated User Feedback</h3>
+                    <ul id="aggregated-feedback-list">
+                        <!-- Dummy Feedback -->
+                        <li>"The KMS has significantly improved our document management process."</li>
+                        <li>"Collaboration tools are intuitive and enhance team productivity."</li>
+                        <li>"Analytics features provide valuable insights into knowledge usage."</li>
+                        <!-- Add more dummy feedback as needed -->
+                    </ul>
+                </div>
+
+                <div class="sentiment-analysis">
+                    <h3>Sentiment Analysis of User Comments</h3>
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activity Log Section -->
+        <section id="activity-log">
+            <h2>Activity Log</h2>
+            <div class="activity-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Admin</th>
+                            <th>Activity</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activity-log-body">
+                        <!-- Dynamic Activity Logs -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLogoutModal()">&times;</span>
+            <h3>Confirm Logout</h3>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button id="confirm-logout" class="confirm-btn">Yes, Logout</button>
+                <button onclick="closeLogoutModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="admin-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/admin.js"></script>
+
+    <!-- Chart Initialization Scripts -->
+    <script>
+        // Security Monitoring Chart - Example: Bar Chart showing Security Events
+        const ctxSecurity = document.getElementById('securityChart').getContext('2d');
+        const securityChart = new Chart(ctxSecurity, {
+            type: 'bar',
+            data: {
+                labels: ['2024-04-21', '2024-04-22', '2024-04-23', '2024-04-24', '2024-04-25'],
+                datasets: [{
+                    label: '# of Security Events',
+                    data: [5, 3, 7, 2, 6],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+
+        // Sentiment Analysis Chart - Example: Pie Chart showing Sentiment Distribution
+        const ctxSentiment = document.getElementById('sentimentChart').getContext('2d');
+        const sentimentChart = new Chart(ctxSentiment, {
+            type: 'pie',
+            data: {
+                labels: ['Positive', 'Neutral', 'Negative'],
+                datasets: [{
+                    data: [60, 25, 15],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(201, 203, 207, 0.6)',
+                        'rgba(255, 99, 132, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(201, 203, 207, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    
+</body>
+</html>

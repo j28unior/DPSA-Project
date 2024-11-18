@@ -1,0 +1,67 @@
+<!-- project/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DPSA KMS - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="assets/images/logo.png" alt="DPSA Logo" class="nav-logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <!-- Add more public links here if needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login-section">
+            <h2>Login to DPSA KMS</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p id="login-error" class="error-message"></p>
+
+            <hr style="margin: 20px auto; width: 80%;">
+
+            <!-- SSO Login Button -->
+            <button id="sso-button" class="btn btn-sso">Login with SSO</button>
+        </section>
+
+        <!-- OTP Modal -->
+        <div id="otp-container" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeOtpModal()">&times;</span>
+                <h3>Enter OTP</h3>
+                <p>An OTP has been sent to your registered email or phone.</p>
+                <form id="otp-form">
+                    <input type="text" id="otp-input" placeholder="Enter OTP" required>
+                    <button type="submit">Submit</button>
+                </form>
+                <p id="otp-error" class="error-message"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Department of Public Service and Administration. All rights reserved.</p>
+    </footer>
+
+    <audio id="login-audio" src="assets/audio/notification.mp3"></audio>
+
+    <!-- Ensure correct script loading order -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/modules/login.js"></script>
+</body>
+</html>
