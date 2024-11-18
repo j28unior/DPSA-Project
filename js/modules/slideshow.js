@@ -44,3 +44,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 5000);
     */
 });
+// slideshow.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".testimonial-slide");
+    const prevButton = document.getElementById("prev-testimonial");
+    const nextButton = document.getElementById("next-testimonial");
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add("active");
+            } else {
+                slide.classList.remove("active");
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
+    function stopSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    // Event listeners for navigation buttons
+    nextButton.addEventListener("click", () => {
+        nextSlide();
+        stopSlideShow();
+        startSlideShow();
+    });
+
+    prevButton.addEventListener("click", () => {
+        prevSlide();
+        stopSlideShow();
+        startSlideShow();
+    });
+
+    // Initialize slideshow
+    showSlide(currentSlide);
+    startSlideShow();
+});
+
